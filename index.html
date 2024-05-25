@@ -10,7 +10,7 @@
     <div class="app">
         <div class="login-container">
             <h2 class="login-title">Iniciar Sesión</h2>
-            <form class="login-form" id="loginForm">
+            <form class="login-form" action="login.php" method="post">
                 <div class="input-group">
                     <label for="username">Usuario</label>
                     <input type="text" id="username" name="username" placeholder="Ingresa tu usuario">
@@ -23,25 +23,5 @@
             </form>
         </div>
     </div>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            fetch("verificar_usuario.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = 'menu.html';
-                } else {
-                    alert("Usuario o contraseña incorrectos");
-                }
-            })
-            .catch(error => console.error("Error:", error));
-        });
-    </script>
 </body>
 </html>

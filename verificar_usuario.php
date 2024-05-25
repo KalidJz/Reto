@@ -1,18 +1,36 @@
 <?php
-// Obtener datos del formulario
-$username = $_POST['username'];
-$password = $_POST['password'];
+// Establecer la conexión PDO para Access
+$dbPath = 'ruta/a/tu/base/de/datos/access.mdb';
+$pdo = new PDO("odbc:DRIVER={Microsoft Access Driver (*.mdb)}; DBQ=$dbPath; Uid=; Pwd=;");
 
-// Validar los datos contra la base de datos (debes implementar esta lógica)
+// Verificar si se enviaron datos del formulario
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    // Obtener los datos del formulario
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-// Simulación de validación (reemplaza esta parte con tu lógica de validación)
-if ($username === "usuario" && $password === "contraseña") {
-    $response = array("success" => true);
+    // Preparar la consulta SQL
+    $sql = "SELECT * FROM usuarios WHERE usuario = ? AND contraseña = ?";
+    $statement = $pdo->prepare($sql);
+
+    // Ejecutar la consulta con los valores proporcionados por el formulario
+    $statement->execute([$username, $password]);
+
+    // Obtener los resultados
+    $result = $statement->fetch(PDO::FETCH_ASSOC);
+
+    // Verificar los resultados
+    if ($result) {
+        // Usuario y contraseña válidos
+        header("Location: menu.html"); // Redirigir al menú principal
+        exit();
+    } else {
+        // Usuario y/o contraseña inválidos
+        echo "Usuario y/o contraseña incorrectos";
+    }
 } else {
-    $response = array("success" => false);
+    // Redirigir si no se enviaron datos del formulario
+    header("Location: login.html");
+    exit();
 }
-
-// Devolver respuesta JSON al cliente
-header('Content-Type: application/json');
-echo json_encode($response);
 ?>

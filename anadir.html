@@ -1,4 +1,31 @@
-<link rel="stylesheet" href="menucss.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="menucss.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+      .content-wrapper {
+          display: flex;
+          justify-content: center; 
+          align-items: center; 
+          height: 100vh; 
+      }
+
+      select.form-select {
+          background-color: rgba(0, 0, 0, 0.5); 
+          color: #ffffff;
+          border: 1px solid #ffffff; 
+          border-radius: 4px;
+          padding: 5px 10px; 
+      }
+
+      select.form-select option {
+          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+      }
+  </style>
+</head>
 
 <div class="video-bg">
     <video width="320" height="240" autoplay loop muted>
@@ -98,22 +125,44 @@
             <path xmlns="http://www.w3.org/2000/svg" d="M480 0H32C14.368 0 0 14.368 0 32v448c0 17.664 14.368 32 32 32h448c17.664 0 32-14.336 32-32V32c0-17.632-14.336-32-32-32z" fill="#210027" data-original="#7b1fa2" />
 
             <form method="post" action="conexion.php">
-                <div class="text-bar">
-                    Cantidad De Tomates: <input type="text" name="" id="" ><br><br>
-                </div><br>
+                
+              <div class="text-bar">
+                <label for="Cantidad">Cantidad De Tomates:</label>
+                <input type="text" name="" id="" >
+              </div>
 
                 <div class="text-bar">
-                    Hora: <input type="time" name="" id="" ><br>
-                </div><br>
+                  <label for="hora">Hora:</label>
+                  <input type="time" id="hora" name="hora">
+                </div>
 
                 <div class="text-bar">
-                    Dia: <input type="date" name="" id="" ><br>
-                </div><br>
+                  <label for="dia">Dia:</label>
+                  <input type="data" id="dia" name="dia">
+                </div>
 
-                <button type="button" class="btn btn-outline-primary">Enviar</button> 
+                N° De Invernadero: <select class="form-select" aria-label="Default select example">
+                  <option selected>Seleccion Invernadero</option>
+                  <option value="1">Invernadero 1</option>
+                  <option value="1">Invernadero 2</option>
+                  <option value="1">Invernadero 3</option>
+                  <option value="1">Invernadero 4</option>
+                  <option value="1">Invernadero 5</option>
+                  <option value="1">Invernadero 6</option>
+                  <option value="1">Invernadero 7</option>
+                  <option value="1">Invernadero 8</option>
+                  <option value="1">Invernadero 9</option>
+                  <option value="1">Invernadero 10</option>
+                  <option value="1">Invernadero 11</option>
+                  <option value="1">Invernadero 12</option>
+                  
+                </select><br>
+
+                <button type="button" class="btn btn-outline-primary" onclick="mostrarLetra()">Enviar</button>
                 <button class="btn btn-outline-danger">Cancelar</button>
             </form>
           <div class="app-card-buttons">
+            <div id="letra" class="app-card-buttons"></div>
           </div>
          </div>
         </div>
@@ -123,3 +172,15 @@
     </div>
     <div class="overlay-app"></div>
    </div>
+
+
+   <script>
+    function mostrarLetra() {
+        var letraDiv = document.getElementById('letra');
+        if (letraDiv) {
+            letraDiv.innerHTML = '<div class="alert alert-success" role="alert">Agregado Correctamente</div>';
+        } else {
+            console.error("No se encontró el div con el ID 'letra'");
+        }
+    }
+</script>

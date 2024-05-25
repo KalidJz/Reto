@@ -244,25 +244,27 @@ body.light-mode .video-bg:before {
 }
 
 .text-bar {
-  height: 40px;
   display: flex;
+  align-items: center; 
   width: 100%;
   max-width: 400px;
-  padding-left: 16px;
   border-radius: 4px;
+  margin-bottom: 10px; 
+}
+
+.text-bar label {
+  margin-right: 10px; 
 }
 
 .text-bar input {
-  width: 100%;
-  height: 100%;
+  flex: 1; 
   border: none;
-  background-color: var(--text-bg);
   border-radius: 4px;
   font-family: var(--body-font);
   font-size: 15px;
   font-weight: 500;
-  padding: 0 20px;
-  box-shadow: 0 0 0 2px rgb(134 140 160 / 2%);
+  padding: 8px 12px;
+  background-color: rgba(0, 0, 0, 0.5);
   color: var(--theme-color);
 }
 
@@ -272,6 +274,7 @@ body.light-mode .video-bg:before {
   font-size: 15px;
   font-weight: 500;
 }
+
 
 
 

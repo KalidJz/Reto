@@ -1,6 +1,6 @@
 <?php
 // Establecer la conexión PDO para Access
-$dbPath = 'ruta/a/tu/base/de/datos/access.mdb';
+$dbPath = 'access.mdb';
 $pdo = new PDO("odbc:DRIVER={Microsoft Access Driver (*.mdb)}; DBQ=$dbPath; Uid=; Pwd=;");
 
 // Verificar si se enviaron datos del formulario

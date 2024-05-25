@@ -39,7 +39,7 @@
          Añadir
          
         </a>
-        <a href="graficaejm.webp">
+        <a href="graficas.html">
          <svg viewBox="0 0 512 512" fill="currentColor">
           <circle cx="295.099" cy="327.254" r="110.96" transform="rotate(-45 295.062 327.332)" />
           <path d="M471.854 338.281V163.146H296.72v41.169a123.1 123.1 0 01121.339 122.939c0 3.717-.176 7.393-.5 11.027zM172.14 327.254a123.16 123.16 0 01100.59-120.915L195.082 73.786 40.146 338.281H172.64c-.325-3.634-.5-7.31-.5-11.027z" />
@@ -89,7 +89,7 @@
      </div>
      <div class="main-container">
       <div class="main-header">
-       <a class="menu-link-main" href="#">Graficas</a>
+       <a class="menu-link-main" href="#">Añadir</a>
       </div>
       <div class="content-wrapper">
        <div class="content-section">
@@ -97,10 +97,21 @@
            
             <path xmlns="http://www.w3.org/2000/svg" d="M480 0H32C14.368 0 0 14.368 0 32v448c0 17.664 14.368 32 32 32h448c17.664 0 32-14.336 32-32V32c0-17.632-14.336-32-32-32z" fill="#210027" data-original="#7b1fa2" />
 
-            <form action="">
+            <form method="post" action="conexion.php">
+                <div class="text-bar">
+                    Cantidad De Tomates: <input type="text" name="" id="" ><br><br>
+                </div><br>
 
-                <img src="graficaejm.webp" alt="">
+                <div class="text-bar">
+                    Hora: <input type="time" name="" id="" ><br>
+                </div><br>
 
+                <div class="text-bar">
+                    Dia: <input type="date" name="" id="" ><br>
+                </div><br>
+
+                <button type="button" class="btn btn-outline-primary">Enviar</button> 
+                <button class="btn btn-outline-danger">Cancelar</button>
             </form>
           <div class="app-card-buttons">
           </div>
@@ -112,5 +123,3 @@
     </div>
     <div class="overlay-app"></div>
    </div>
-
-
